@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+
+	<head>
+	<meta charset="utf-8">
+	<!-- head does not display-->
+		<title>home</title>
+	
+	</head>
+	
+	<style>
+	
+	*{
+		margin: auto;
+		padding: 0;
+	}
+	
+	html{
+		height: 100%;
+	}
+	
+	div{
+		background-color:white;
+		height: 100%;
+	}
+	
+	header{
+		background-image: url("header.jpg");
+		background-size: 960px 150px;
+		padding-top: 1em;
+		background-color: black;
+		color: red;
+		object-fit: contain;
+		width: 910px;
+		height: 100px;
+		text-align: left;
+		padding-left: 50px;
+		font-size: 20px;
+		font-family: Arial Narrow, sans-serif;
+	}
+	
+	label{
+		font-size: 20px;
+		color: red;
+		font-family: Arial Narrow, sans-serif;
+	}
+	
+	#sidebar{
+		text-align: center;
+		float: left;
+		width: 50%;
+	}
+	
+	body{
+		width: 960px;
+		height: 3400px;
+		text-align: center;
+		background-image: url("background2_tile.jpg");
+		background-image: repeat-y;
+	}
+	
+	#content{
+		font-size: 14px;
+		font-family: Arial Narrow, sans-serif;
+		width: 860px;	
+		margin:0 auto;
+		height: auto;
+		height: 100%;
+		min-height:100%;
+		background-color: white;
+	}
+	
+	footer
+	{
+		bottom:0;
+		width: 960px;
+		height:60px;
+		background: black;
+		text-align: left;
+		color: white;
+	}
+	
+	/* nav bar*/
+	/* Remove margins and padding from the list, and add a black background color */
+	ul.topnav {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #333;
+	}
+
+	/* Float the list items side by side */
+	ul.topnav li {float: left;}
+
+	/* Style the links inside the list items */
+	ul.topnav li a {
+		display: inline-block;
+		color: #f2f2f2;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		transition: 0.3s;
+		font-size: 17px;
+	}
+
+	/* Change background color of links on hover */
+	ul.topnav li a:hover {background-color: #555;}
+
+	/* Hide the list item that contains the link that should open and close the topnav on small screens */
+	ul.topnav li.icon {display: none;}
+	/* end nav bar*/
+	</style>
+	
+	<script>
+	
+	
+	// Banner Rotator logic
+ 
+	//Load banner elements into array
+  	var banners = new Array("burgers-3.jpg","burgers-4.jpg","kennys_burgers_0.jpg","menu-burgers-designed.jpg","original.jpg");
+
+	//Set banner counter to 0  
+  	var bnrCntr = 0;
+  
+	//Function that actually rotates the banner
+    	  function bancycle() 
+	{
+
+      	if (bnrCntr == banners.length) {
+       		bnrCntr = 0;
+       	}
+		
+		document.Banner.src = banners[bnrCntr];
+
+		bnrCntr = bnrCntr + 1;
+
+    	setTimeout("bancycle()",5000);
+    }
+	//end of bancycle() Function
+
+//End Banner Rotator Logic
+
+	function Order()
+	{
+		var total = 0;
+		var orderOne = parseInt(document.getElementById("OrderNum1").value);
+		var orderTwo = parseInt(document.getElementById("OrderNum2").value);
+		var orderThree = parseInt(document.getElementById("OrderNum3").value);
+		var orderFour = parseInt(document.getElementById("OrderNum4").value);
+		var orderFive = parseInt(document.getElementById("OrderNum5").value);
+		
+		var Delivery = 0;
+		var totalItems = orderOne + orderTwo + orderThree + orderFour + orderFive;
+		
+		total = total + orderOne * 8.99;
+		total = total + orderTwo * 7.50;
+		total = total + orderThree * 8.99;
+		total = total + orderFour * 12.50;
+		total = total + orderFive * 14.45;
+		
+		Delivery = totalItems + 3;
+		Delivery = Delivery/3;
+		Delivery = parseInt(Delivery) * 3.50;
+		
+		total = total + Delivery;
+		
+		document.getElementById("totalItems").innerHTML = totalItems;
+		document.getElementById("totalTotalSales").innerHTML = "$" + parseFloat(total).toFixed(2);
+	}
+	
+	function OrderFinal(){
+		document.getElementById("Ordercomplete").innerHTML = "Your Order has been placed!";
+	}
+	</script>
+
+	<body  onload = "bancycle()">
+		<div>
+		
+				<header>
+					
+					<h1>Shake'n Fries Burger Palace</h1>
+				</header>
+			
+			
+			<ul class="topnav" id="myTopnav">
+				<li><a href="Advertisement.html">Home</a></li>
+				<li><a href="OrderPage.html">Quick Meals</a></li>
+				<li><a href="Specials.html">Specials</a></li>
+				<li class="icon">
+				<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+				</li>
+	
+			</ul>
+		
+			<content id = "sidebar">
+				<img name = "Banner" style = 'height: 100%; width: 960px; object-fit: contain'>
+			</content>
+			
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<form>
+			
+			
+				<content id = "content">
+					<br><h2><span id = "Ordercomplete"></span></h2><br>
+					<label>The slopy slider<label><br>
+					<img src="kennys_burgers_0.jpg" height="300" width="400"><br>
+					How many Would you like?<br>
+					$8.99 per burger <br>
+					<input type="number" name="OrderNum" id="OrderNum1" value = "0">
+					<input type = "button" name = "Enter" value = "Enter" onClick="Order()">
+					<br>Total at the buttom
+					<br><br><br>
+					
+					<label>White chedar with bacon<label><br>
+					<img src="menu-burgers-designed.jpg" height="300" width="400"><br>
+					How many Would you like?<br>
+					$7.50 per burger <br>
+					<input type="number" name="OrderNum" id="OrderNum2" value = "0">
+					<input type = "button" name = "Enter" value = "Enter" onClick="Order()">
+					<br>Total at the buttom
+					<br><br><br>
+					
+					<label>Cheese burger toppings on the side<label><br>
+					<img src="burgers-3.jpg" height="300" width="400"><br>
+					How many Would you like?<br>
+					$8.99 per burger <br>
+					<input type="number" name="OrderNum" id="OrderNum3" value = "0">
+					<input type = "button" name = "Enter" value = "Enter" onClick="Order()">
+					<br>Total at the buttom
+					<br><br><br>
+	
+					<label>Peaches on tuna Delight<label><br>
+					<img src="burgers-4.jpg" height="300" width="400"><br>
+					How many Would you like?<br>
+					$12.50per burger <br>
+					<input type="number" name="OrderNum" id="OrderNum4" value = "0">
+					<input type = "button" name = "Enter" value = "Enter" onClick="Order()">
+					<br>Total at the buttom
+					<br><br><br>
+	
+					<label>The Kings Extra Stacker<label><br>
+					<img src="original.jpg" height="300" width="400"><br>
+					How many Would you like?<br>
+					$14.45 per burger <br>
+					<input type="number" name="OrderNum" id="OrderNum5" value = "0">
+					<input type = "button" name = "Enter" value = "Enter" onClick="Order()">
+					<br>Total at the buttom
+					<br><br><br>
+					
+					<label>
+						$3.50 Delivery charge per every 3 items <br>
+						your total items:<span id = "totalItems"></span><br>
+						your total:<span id = "totalTotalSales"></span><br><br>
+						
+						Order Info<br>
+						<b>Name(first and last)</b><br>
+						<input type="text" name="name" id="name" required><br><br>
+					
+					
+						<b>Full Address</b><br>
+						<input type="text" name="Address" id="Address" size = "100" required><br><br><br>
+					
+						<input type='submit' value='Submit' name='submit' onClick = "OrderFinal()">
+						<br>
+					</label>
+				
+				</content>
+			</form>
+			<footer>
+				Designed and Coded By Kyle Moon
+				<br><p><b>Thank you for viewing!</b></p>
+			</footer>
+			
+		</div>
+	</body>
+
+
+</html>

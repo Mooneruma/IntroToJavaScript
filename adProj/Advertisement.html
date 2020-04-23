@@ -1,0 +1,282 @@
+<!doctype html>
+<html>
+
+	<head>
+	<meta charset="utf-8">
+	<!-- head does not display-->
+		<title>home</title>
+	
+	</head>
+	
+	<style>
+	
+	*{
+		margin: auto;
+		padding: 0;
+	}
+	
+	html{
+		height: 100%;
+	}
+	
+	div{
+		background-color:white;
+		height: 100%;
+	}
+	
+	header{
+		background-image: url("header.jpg");
+		background-size: 960px 150px;
+		padding-top: 1em;
+		background-color: black;
+		color: red;
+		object-fit: contain;
+		width: 910px;
+		height: 100px;
+		text-align: left;
+		padding-left: 50px;
+		font-size: 20px;
+		font-family: Arial Narrow, sans-serif;
+	}
+	
+	#sidebar{
+		text-align: center;
+		float: left;
+		width: 50%;
+	}
+	
+	body{
+		width: 960px;
+		height: 100%;
+		text-align: center;
+		background-image: url("background2_tile.jpg");
+		background-image: repeat-y;
+	}
+	
+	#content{
+		font-size: 20px;
+		color: red;
+		font-family: Arial Narrow, sans-serif;
+		width: 860px;		
+	}
+	
+	footer
+	{
+		position:absolute;
+		bottom:0;
+		width: 960px;
+		height:60px;
+		background: black;
+		text-align: left;
+		color: white;
+	}
+	
+	/* nav bar*/
+	/* Remove margins and padding from the list, and add a black background color */
+	ul.topnav {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #333;
+	}
+
+	/* Float the list items side by side */
+	ul.topnav li {float: left;}
+
+	/* Style the links inside the list items */
+	ul.topnav li a {
+		display: inline-block;
+		color: #f2f2f2;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		transition: 0.3s;
+		font-size: 17px;
+	}
+
+	/* Change background color of links on hover */
+	ul.topnav li a:hover {background-color: #555;}
+
+	/* Hide the list item that contains the link that should open and close the topnav on small screens */
+	ul.topnav li.icon {display: none;}
+	/* end nav bar*/
+	</style>
+	
+	<script>
+	
+	
+
+	
+	// Banner Rotator logic
+ 
+	//Load banner elements into array
+  	var banners = new Array("burgers-3.jpg","burgers-4.jpg","kennys_burgers_0.jpg","menu-burgers-designed.jpg","original.jpg");
+
+	//Set banner counter to 0  
+  	var bnrCntr = 0;
+  
+	//Function that actually rotates the banner
+    	  function bancycle() 
+	{
+
+      	if (bnrCntr == banners.length) {
+       		bnrCntr = 0;
+       	}
+		
+		document.Banner.src = banners[bnrCntr];
+
+		bnrCntr = bnrCntr + 1;
+
+    	setTimeout("bancycle()",5000);
+    }
+	//end of bancycle() Function
+
+//End Banner Rotator Logic
+
+	function Promo()
+	{
+		var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+		var today = new Date();
+		var day = days[ today.getDay() ];
+		
+		var d = new Date();
+		var TimeH = d.getHours();
+		
+		var c = new Date();
+		var TimeM = c.getMinutes();
+		
+		if(day == "Monday")
+		{
+			if(TimeM > 30 && TimeH == 7 || TimeH >= 7 && TimeH < 12)
+			{
+				document.getElementById("Promotion").innerHTML = "Monday lunch Special of eggs with waffles $9.50";
+			}
+		}
+		
+		if(day == "Tuesday")
+		{
+			if(TimeM > 30 && TimeH == 7 || TimeH >= 7 && TimeH < 12)
+			{
+				document.getElementById("Promotion").innerHTML = "Tuesday lunch specail of eggs benedict $7.50";
+			}
+			
+			if( TimeH >= 13 && TimeH < 20)
+			{
+				document.getElementById("Promotion").innerHTML = "Tuesday dinner specail of stake and corn $17.50";
+			}
+		}
+		
+		if(day == "Wednesday")
+		{
+			if(TimeM > 30 && TimeH == 7 || TimeH >= 7 && TimeH < 12)
+			{
+				document.getElementById("Promotion").innerHTML = "Wednesday lunch special of early raiser sliders $8.50";
+			}
+			
+			if( TimeH >= 13 && TimeH < 20)
+			{
+				document.getElementById("Promotion").innerHTML = "Wednesday dinner special is the 1 pound beef grind burger $9.99";
+			}
+		}
+		
+		if(day == "Thursday")
+		{
+			if(TimeM > 30 && TimeH == 7 || TimeH >= 7 && TimeH < 12)
+			{
+				document.getElementById("Promotion").innerHTML = "Thursday lunch special of eggs with toast $6.50";
+			}
+			
+			if( TimeH >= 13 && TimeH < 20)
+			{
+				document.getElementById("Promotion").innerHTML = "Thursday dinner special of chedder burgers $8.89";
+			}
+		}
+		
+		if(day == "Friday")
+		{
+			if(TimeM > 30 && TimeH == 7 || TimeH >= 7 && TimeH < 12)
+			{
+				document.getElementById("Promotion").innerHTML = "Friday lunch special mashed potatoes come with all meals";
+			}
+			
+			
+			if( TimeH >= 13 && TimeH < 20)
+			{
+				if(TimeH == 13 || TimeH >= 17 && TimeH < 20)
+				{
+					document.getElementById("Promotion").innerHTML = "Friday dinner special of Ribeye for $19.99";
+				}
+				else
+				{
+					if( TimeH >= 14 && TimeH < 17)
+					{
+						document.getElementById("Promotion").innerHTML = "Friday dinner special of Ribeye for $19.99 & Happy hour first shot bought comes with another free";
+					}
+				}
+			}
+		}
+		
+		if(day == "Saturday")
+		{
+			if( TimeH >= 13 && TimeH < 20)
+			{
+				if(TimeH == 13 || TimeH >= 17 && TimeH < 20)
+				{
+					document.getElementById("Promotion").innerHTML = "Saturday dinner specail every meal comes with the drink free";
+				}
+				else
+				{
+					if( TimeH >= 14 && TimeH < 17)
+					{
+						document.getElementById("Promotion").innerHTML = "Saturday dinner specail every meal comes with the drink free & happy hour beers are bye two get one free";
+					}
+				}	
+			}
+		}
+		
+		
+	}
+	
+	
+	</script>
+
+	<body  onload = "bancycle() , Promo()">
+		<div>
+		
+				<header>
+					
+					<h1>Shake'n Fries Burger Palace</h1>
+				</header>
+			
+			
+			<ul class="topnav" id="myTopnav">
+				<li><a href="Advertisement.html">Home</a></li>
+				<li><a href="OrderPage.html">Quick Meals</a></li>
+				<li><a href="Specials.html">Specials</a></li>
+				<li class="icon">
+				<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+				</li>
+	
+			</ul>
+		
+			<content id = "sidebar">
+				<img name = "Banner" style = 'height: 100%; width: 960px; object-fit: contain'>
+			</content>
+			
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			
+			<content id = "content">
+				<br>Come to our webiste during dinner or lunch to view our specails !<br>
+				<span id = "Promotion"/>
+			</content>
+			<footer>
+				Designed and Coded By Kyle Moon
+				<br><p><b>Thank you for viewing!</b></p>
+			</footer>
+			
+		</div>
+	</body>
+
+
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>WDV221 Intro Javascript - Class Lab Project</title>
+
+<style>
+
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0%;
+}
+
+h1 {
+	padding: 10px;
+	text-align: center;
+}
+</style>
+
+<xxxx type="xxxx/xxxxxxxxxx">
+    var d = new Date();
+    var time = d.getHours();
+	
+	
+	
+
+	function greeting(){
+	
+    if (time <= 11 && time >= 6) {
+		document.getElementById("heading").innerHTML = "Good Morning!";
+		document.getElementById("body").style.backgroundColor = "lightblue";
+		document.getElementById("heading").style.color = "white";
+		document.getElementById("heading").style.fontFamily = "Helvetica";
+      }
+	  
+    if (time <= 17 && time >=12) {
+		document.getElementById("heading").innerHTML = "Good Afternoon!";
+		document.getElementById("body").style.backgroundColor = "red";
+		document.getElementById("heading").style.color = "yellow";
+		document.getElementById("heading").style.fontFamily = "Arial";
+      }
+	  
+    if (time <= 21 && time >= 18) {
+		document.getElementById("heading").innerHTML = "Good Evening!";
+		document.getElementById("body").style.backgroundColor = "orange";
+		document.getElementById("heading").style.color = "blue";
+		document.getElementById("heading").style.fontFamily = "Times New Roman";
+      }
+
+	if ((time >= 22) || (time <=5 && time >= 1)) {
+		document.getElementById("heading").innerHTML = "<span></span>";
+		document.getElementById("body").style.backgroundColor = "green";
+      }
+	 }
+	  
+    </xxxx>
+</head>
+
+<body xx="greeting()" id="body">
+
+<h1 id="heading"></h1>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+
+<meta charset="UTF-8">
+
+	<title>Banner Rotator</title>
+	
+	<!--Author: Robin Jennings
+		Date: 12/6/2016
+		Project: Banner Rotator Project
+		-->
+	
+<style>
+
+/*CSS for slides*/
+.css-slideshow{
+   position: relative;
+   max-width: 500px;
+   width: 500px;
+   height: 370px;
+   margin: 5px auto 5px auto;
+}
+.css-slideshow figure{
+   margin: 0;
+   position: absolute;
+}
+.css-slideshow figcaption{
+   position: absolute;
+   top: 0;
+   color: #fff;
+   background: rgba(0,0,0, .3);
+   font-size: .8em;
+   padding: 8px 12px;
+   opacity: 0;
+   transition: opacity .5s;
+}
+.css-slideshow:hover figure figcaption{
+   transition: opacity .5s;
+   opacity: 1;
+}
+.css-slideshow figure{
+   opacity:0;
+}
+figure:nth-child(1) {
+   animation: xfade 8s 1s infinite;
+}
+figure:nth-child(2) {
+   animation: xfade 8s 2s infinite;
+}
+figure:nth-child(3) {
+   animation: xfade 8s 3s infinite;
+}
+figure:nth-child(4) {
+   animation: xfade 8s 4s infinite;
+}
+figure:nth-child(5) {
+   animation: xfade 8s 5s infinite;
+}
+figure:nth-child(6) {
+   animation: xfade 8s 6s infinite;
+}
+figure:nth-child(7) {
+   animation: xfade 8s 7s infinite;
+}
+figure:nth-child(8) {
+   animation: xfade 8s 8s infinite;
+}
+@keyframes xfade{
+   0%{
+      opacity: 0.5;
+   }
+   10.5% {
+      opacity:1.0;
+   }
+   12.5%{
+      opacity: 0;
+   }
+   98% {
+      opacity:0;
+   }
+   100% {
+      opacity:0;
+   }
+}
+</style>
+		
+<script>
+function rotateBanners(elem) {
+	var active = $(elem+" img.active");
+	var next = active.next();
+	
+  if (next.length == 0) 
+	next = $(elem+"img:first");
+	active.removeClass("active").fadeOut(200);
+	next.addClass("active").fadeIn(200);
+}
+
+function prepareRotator(elem) {
+  $(elem+" img").fadeOut(0);
+  $(elem+" img:first").fadeIn(0).addClass("active");
+}
+
+function startRotator(elem) {
+  prepareRotator(elem);
+  setInterval("rotateBanners('"+elem+"')", 2500);
+}
+</script>
+		
+</head>
+
+<body>
+<html>
+  <head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+    <link href="rotate.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="rotate.js"></script>
+    <script type="text/javascript">
+      $(window).load(function() {
+        startRotator("#rotator");
+      })
+    </script>
+  </head>
+<body>
+  <div class="css-slideshow">
+  
+  <figure>
+    <img height="500" src="images/arcade.jpg" width="600" />
+  </figure>
+  <figure>
+    <img height="500" src="images/30000-calorie-burger.jpg" width="600" />
+  </figure>
+  <figure>
+    <img height="500" src="images/beer.jpg" width="600" />
+  </figure>
+  <figure>
+    <img height="500" src="images/tBone.jpg" width="600" />
+  </figure>
+  <figure>
+	<img height="500" src="images/stuffedManicotti.jpg" width="600" />
+  </figure>
+  <figure>
+	<img height="500" src="images/westernBaconDouble_Burger.jpg" width="600" />
+  </figure>
+  <figure>
+	<img height="500" src="images/steakAndTaters.jpg" width="600" /> 
+  </figure>
+  <figure>
+	<img height="500" src="images/lasagne.jpg" width="600" />
+  </figure>
+  </div>
+</body>
+</html>
+<h1></h1>
+
+<h3></h3>
+
+</body>
+</html>

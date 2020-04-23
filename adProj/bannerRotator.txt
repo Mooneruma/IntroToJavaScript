@@ -1,0 +1,31 @@
+<script>
+
+	// Banner Rotator logic
+ 
+	//Load banner elements into array
+  	var banners = new Array("south-park-s17e02c12-bummed-out-by-the-cable-company-16x9/jpg","banner1.jpg","banner2.jpg","banner3.jpg","banner4.jpg")
+
+	//Set banner counter to 0  
+  	var bnrCntr = 0
+  
+	//Function that actually rotates the banner
+    	  function bancycle() 
+	  {
+
+      		if (bnrCntr == banners.length) {
+        		bnrCntr = 0
+      	  	}
+		
+    	  document.Banner.src = banners[bnrCntr];
+
+ 	  bnrCntr = bnrCntr + 1;
+
+    	  setTimeout("bancycle()",3000);
+
+
+    	  }//end of bancycle() Function
+
+//End Banner Rotator Logic
+
+
+</script>
